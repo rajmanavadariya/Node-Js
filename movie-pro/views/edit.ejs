@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Page</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-image: url(../uploads/spider.jpg);
+            background-size: contain;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #444;
+        }
+
+        .container {
+            background-image: url(../uploads/spider.jpg);
+            background-size: cover;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 750px;
+            border: 10px solid red;
+            border-top-left-radius: 90px;
+            border-bottom-right-radius: 90px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        form input[type="text"],
+        form input[type="file"] {
+            padding: 12px;
+            border: 0;
+            box-shadow: 3px 4px 16px red;
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+            color: white;
+            
+        }
+
+          ::placeholder{
+            color: white;
+        }
+
+        form input[type="text"]:focus, 
+        form input[type="file"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+            color: #f1f1f1;
+        }
+
+        form input[type="submit"] {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td img {
+            width: 400px;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button {
+            background-color: #f44336;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e53935;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .edit-button {
+            background-color: #2196F3;
+        }
+
+        .edit-button:hover {
+            background-color: #1976D2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <h1>Update Data</h1>
+        <form action="/updateData?id=<%=editschema.id%>" method="post"  enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Enter name" value="<%=editschema.name%>">
+            <input type="text" name="subject" placeholder="Enter subject" value="<%=editschema.subject%>">
+            <input type="file" name="image">
+            <img src="<%=editschema.image%>" width="30%" alt="">
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
